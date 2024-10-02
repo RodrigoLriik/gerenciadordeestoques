@@ -1,0 +1,37 @@
+import time
+estoque = [10, 20, 15, 50, 20]
+
+def vender(produto, tipo, quantidade):
+    if (0) <= produto < len(estoque):
+        if tipo == "vender":
+            if estoque[produto]>=quantidade:
+                estoque[produto]-=quantidade
+                print("Foram vendidos", quantidade, "do produto", produto)
+            else:
+                print("Produto em falta no estoque!")      
+        elif tipo == "repor":
+            estoque[produto]+=quantidade
+            print("Forma adicionadas", quantidade, "unidades do produto", produto)
+        elif tipo == "add":
+            estoque.append(quantidade)
+
+def main():
+    print("____NOME DOS PRODUTOS____")
+    print("\n 0. Cachaça")
+    print("\n 1. Cerveja")
+    print("\n 2. Pitú")
+    print("\n 3. Bala")
+    print("\n 4. Refrigerante")
+    time.sleep(1)
+    produto = int(input("\n Qual o produto: "))
+    time.sleep(1)
+    tipo = input("O que deseja fazer: ")
+    time.sleep(1)
+    quantidade = int(input("Qual a quantidade: "))
+    time.sleep(1)
+    vender(produto, tipo, quantidade)
+    print("Estoque atual:")
+    print(estoque)
+    exit()
+while True:
+    main()
